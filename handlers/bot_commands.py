@@ -11,4 +11,4 @@ async def command_start_handler(message: Message) -> None:
     """
     Этот обработчик получает сообщения с командой start.
     """
-    await message.answer(f"Привет, {hbold(message.from_user.full_name)}!")
+    await message.answer(f"Привет, {hbold(message.from_user.full_name)}!",parse_mode="HTML")
