@@ -1,4 +1,6 @@
+import os
 import asyncio
+from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher
 from handlers import (
     bot_commands,
@@ -6,9 +8,12 @@ from handlers import (
     bot_errors,
     bot_startup)
 
+# Загрузка переменных окружения из файла .env
+load_dotenv()
+
 
 async def main() -> None:
-    bot = Bot('')
+    bot = Bot(os.getenv('BOT_TOKEN'))
     dp = Dispatcher()
     dp.include_routers(
         bot_commands.router,
